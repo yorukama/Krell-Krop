@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
 import DaiToken from '../abis/DaiToken.json'
-import DappToken from '../abis/DappToken.json'
+import KrellKoin from '../abis/KrellKoin  .json'
 import TokenFarm from '../abis/TokenFarm.json'
 import Navbar from './Navbar'
 import Main from './Main'
@@ -26,15 +26,15 @@ class App extends Component {
     } else {
       window.alert('DaiToken contract not deployed to detected network.')
     }
-    // Load DappToken
-    const dappTokenData = DappToken.networks[networkId]
-    if(dappTokenData) {
-      const dappToken = new web3.eth.Contract(DappToken.abi, dappTokenData.address)
-      this.setState({ dappToken })
-      let dappTokenBalance = await dappToken.methods.balanceOf(this.state.account).call()
-      this.setState({ dappTokenBalance: dappTokenBalance.toString() })
+    // Load KrellKoin
+    const krellKoinData = KrellKoin.networks[networkId]
+    if(krellKoinData) {
+      const krellKoin = new web3.eth.Contract(KrellKoin.abi, krellKoinData.address)
+      this.setState({ krellKoin  })
+      let krellKoinBalance = await krellKoin.methods.balanceOf(this.state.account).call()
+      this.setState({ krellKoinBalance: krellKoinBalance.toString() })
     } else {
-      window.alert('DappToken contract not deployed to detected network.')
+      window.alert('KrellKoin contract not deployed to detected network.')
     }
     // Load TokenFarm
     const tokenFarmData = TokenFarm.networks[networkId]
@@ -79,10 +79,10 @@ class App extends Component {
     this.state = {
       account: '0x0',
       daiToken: {},
-      dappToken: {},
+      krellKoin: {},
       tokenFarm: {},
       daiTokenBalance: '0',
-      dappTokenBalance: '0',
+      krellKoinBalance: '0',
       stakingBalance: '0',
       loading: true
     }
@@ -94,7 +94,7 @@ class App extends Component {
     } else {
       content = <Main
         daiTokenBalance={this.state.daiTokenBalance}
-        dappTokenBalance={this.state.dappTokenBalance}
+        krellKoinBalance={this.statekrellKoinBalance}
         stakingBalance={this.state.stakingBalance}
         stakeTokens={this.stakeTokens}
         unstakeTokens={this.unstakeTokens}

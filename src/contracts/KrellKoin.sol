@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-contract DappToken {
-    string  public name = "DApp Token";
-    string  public symbol = "DAPP";
+contract KrellKoin {
+    string  public name = "Krell Koin";
+    string  public symbol = "KK";
     uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
     uint8   public decimals = 18;
 

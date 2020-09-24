@@ -1,7 +1,7 @@
 
 const TokenFarm = artifacts.require('TokenFarm')
 const DaiToken = artifacts.require('DaiToken')
-const DappToken = artifacts.require('DappToken')
+const KrellKoin = artifacts.require('KrellKoin')
 
 require('chai')
 	.use(require('chai-as-promised'))
@@ -12,15 +12,15 @@ function tokens(n){
 }
 
 contract('TokenFarm', ([owner, investor])=>{
-	let daiToken, dappToken, tokenFarm
+	let daiToken, krellKoin, tokenFarm
 
 	before(async()=>{
 		//load contracts
 		daiToken = await DaiToken.new()
-		dappToken = await DappToken.new()
-		tokenFarm = await TokenFarm.new(dappToken.address, daiToken.address)
+		krellKoin = await KrellKoin.new()
+		tokenFarm = await TokenFarm.new(krellKoin.address, daiToken.address)
 		//xfer dap tokens to farm
-		await dappToken.transfer(tokenFarm.address, tokens('1000000'))
+		await krellKoin.transfer(tokenFarm.address, tokens('1000000'))
 		//xfer investor tokens
 		await daiToken.transfer(investor, tokens('100'), {from:owner})
 	})
@@ -31,10 +31,10 @@ contract('TokenFarm', ([owner, investor])=>{
 			assert.equal(name,'Mock DAI Token')
 		})
 	})
-	describe('Dapp Token deployment', async() =>{
+	describe('Krell Koin deployment', async() =>{
 		it('has a name', async() =>{
-			const name = await dappToken.name()
-			assert.equal(name,'DApp Token')
+			const name = await krellKoin.name()
+			assert.equal(name,'Krell Koin')
 		})
 	})
 	describe('Token Farm deployment', async() =>{
@@ -43,7 +43,7 @@ contract('TokenFarm', ([owner, investor])=>{
 			assert.equal(name,'Krell Krop')
 		})
 		it('contract has tokens', async() =>{
-			let balance = await dappToken.balanceOf(tokenFarm.address)
+			let balance = await krellKoin.balanceOf(tokenFarm.address)
 			assert.equal(balance.toString(), tokens('1000000'))
 		})
 	})
@@ -67,7 +67,7 @@ contract('TokenFarm', ([owner, investor])=>{
 			//issue tokens
 			await tokenFarm.issueTokens({from: owner })
 			//check balance 
-			result = await dappToken.balanceOf(investor)
+			result = await krellKoin.balanceOf(investor)
 			assert.equal(result.toString(), tokens('100'), 'Investor token waller ballance is correct after being issued')
 			//ensure only owner can issue tokens
 			await tokenFarm.issueTokens({from: investor}).should.be.rejected
