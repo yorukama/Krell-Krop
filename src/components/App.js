@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
 import DaiToken from '../abis/DaiToken.json'
-import KrellKoin from '../abis/KrellKoin  .json'
+import KrellKoin from '../abis/KrellKoin.json'
 import TokenFarm from '../abis/TokenFarm.json'
 import Navbar from './Navbar'
 import Main from './Main'
@@ -94,7 +94,7 @@ class App extends Component {
     } else {
       content = <Main
         daiTokenBalance={this.state.daiTokenBalance}
-        krellKoinBalance={this.statekrellKoinBalance}
+        krellKoinBalance={this.state.krellKoinBalance}
         stakingBalance={this.state.stakingBalance}
         stakeTokens={this.stakeTokens}
         unstakeTokens={this.unstakeTokens}

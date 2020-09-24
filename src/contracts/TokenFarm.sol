@@ -4,7 +4,7 @@ import "./KrellKoin.sol";
 import "./DaiToken.sol";
 
 contract TokenFarm {
-    string public name = "Krell Krop";
+    string public name = "KrellKrop";
     KrellKoin public krellKoin;
     DaiToken public daiToken;
     address[] public stakers;
