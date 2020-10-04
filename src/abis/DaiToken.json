@@ -5019,12 +5019,13 @@
         }
       },
       "links": {},
-      "address": "0xbc693D8eDBbDC52095B27F157d76eC94BEc3f032",
-      "transactionHash": "0x11663661e4147ab691d97968e4af2a19bd958a02e1ce9d1130da91dcc63f0739"
+      "address": "0x7018909E94fE0C49a4e0bA4e90D53b70F8f08B80",
+      "transactionHash": "0x47409c28d5527ad45e2ff153c781fbf358c05dd80de04407c082f0592934754b"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-09-28T17:53:12.744Z",
+  "updatedAt": "2020-10-04T20:20:23.122Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

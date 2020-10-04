@@ -19,7 +19,7 @@ contract TokenFarm {
         daiToken = _daiToken;
         owner = msg.sender;
     }
-    // Stak ingTokens (deposit)
+    // StakingTokens (deposit)
     function stakeTokens(uint _amount) public{
     	//require greater then 0
     	require(_amount > 0, "amount cannot be 0");

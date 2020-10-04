@@ -9,7 +9,7 @@ module.exports = async function(deployer, network, accounts) {
 	await deployer.deploy(KrellKoin)
 	const krellKoin = await KrellKoin.deployed()
 	//deploy token farm
-	await deployer.deploy(TokenFarm, krellKoin.address, krellKoin.address)
+	await deployer.deploy(TokenFarm, krellKoin.address, daiToken.address)
 	const tokenFarm = await TokenFarm.deployed()
 	//transfer all krell koins to token farm (1 mil)
 	await krellKoin.transfer(tokenFarm.address, '100000000000000000000000') 
