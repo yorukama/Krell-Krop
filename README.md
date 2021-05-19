@@ -1,8 +1,6 @@
 # Krell-Krop
-Defi yeild farm
+Framework Defi yeild farm
 
-No way to recive Dai outside of testing.
+No way to recive mock Dai tokens used outside of testing.
 
-planning to change to on network Dai tokens so the program can be used outside of testing by everyone 
-
-Tokens are paid out when the inculded script is ran
+Tokens are paid out when the included script is ran by deployer address
